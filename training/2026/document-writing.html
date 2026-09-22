@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>공문서 작성 · 창원경일고 교직원 연수 포털</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body data-training-id="document-writing">
+<script>window.SITE_DEPTH = 2;</script>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <a class="home-link" href="../../index.html"><span class="school">창원경일고등학교</span><br><span class="title">교직원 연수 포털</span></a>
+    </div>
+    <div class="topbar-meta" id="pageTopMeta">적용 기준 불러오는 중…</div>
+  </div>
+</header>
+
+<div class="doc-header">
+  <a class="doc-back" href="../../index.html">← 연수자료실로 돌아가기</a>
+  <h1 class="doc-title">공문서 작성</h1>
+  
+  <div class="doc-badges">
+    <span class="badge status-badge" id="statusBadge">검토 상태 불러오는 중…</span>
+    <span class="meta" id="pageMeta">기준일·최종 검토일 불러오는 중…</span>
+  </div>
+</div>
+
+<div class="inapp-banner" id="inappBanner">
+  <div class="box">
+    ⚠ 카카오톡 등 인앱 브라우저에서는 인쇄·PDF 저장이 제한될 수 있습니다. 우측 상단 메뉴에서 <b>Chrome 또는 Safari로 열기</b>를 선택해 주세요.
+    <button id="inappCopyBtn">링크 복사</button>
+  </div>
+</div>
+
+<div class="toolbar">
+  <button class="tb-btn" data-toggle-panel="tocPanel">📑 목차</button>
+  <button class="tb-btn" data-toggle-panel="quick3Panel">⏱ 3분 핵심</button>
+  <button class="tb-btn" data-toggle-panel="selectPrintPanel">☑ 선택 인쇄</button>
+  <button class="tb-btn primary" id="fullPrintBtn">🖨 전체 인쇄 · PDF 저장</button>
+</div>
+
+<div class="panel" id="tocPanel">
+  <h4>목차</h4>
+  <ul class="toc-list">
+    <li><a class="" href="#1-근거">1. 근거</a></li>
+    <li><a class="" href="#2-좋은-기안문이란">2. 좋은 기안문이란?</a></li>
+    <li><a class="" href="#3-문서의-일반사항">3. 문서의 일반사항</a></li>
+    <li><a class="lvl3" href="#가-공문-중-관련-표기-방법">가. 공문 중 관련 표기 방법</a></li>
+    <li><a class="lvl3" href="#나-글자-문서는-어문-규범에-맞게-한글로-작성">나. 글자 - 문서는 어문 규범에 맞게 한글로 작성</a></li>
+    <li><a class="lvl3" href="#다-숫자-아라비아-숫자로-씀-제7조제4항">다. 숫자 - 아라비아 숫자로 씀(제7조제4항)</a></li>
+    <li><a class="lvl3" href="#라-연호-서기연호를-쓰되-서기-는-표시하지-않음">라. 연호 - 서기연호를 쓰되, “서기”는 표시하지 않음</a></li>
+    <li><a class="lvl3" href="#마-날짜-숫자로-표기하되-연월일로도-표기-가능">마. 날짜 - 숫자로 표기하되 연월일로도 표기 가능</a></li>
+    <li><a class="lvl3" href="#바-시간-시-분은-24시간제에-따라-숫자로-표기">바. 시간 - 시·분은 24시간제에 따라 숫자로 표기</a></li>
+    <li><a class="lvl3" href="#사-시간-표시를-하는-경우를-제외한-쌍점-의-경우-왼쪽은-붙이고-오른쪽은">사. 시간 표시를 하는 경우를 제외한 쌍점(:)의 경우, 왼쪽은 붙이고 오른쪽은 한 칸(1타) 띄움</a></li>
+    <li><a class="lvl3" href="#자-금액표시-아라비아-숫자로-쓰되-숫자-다음에-괄호를-하고-한글로-기재-">자. 금액표시 - 아라비아 숫자로 쓰되, 숫자 다음에 괄호를 하고 한글로 기재(규칙제12조제2항)</a></li>
+    <li><a class="" href="#4-항목의-구분">4. 항목의 구분</a></li>
+    <li><a class="lvl3" href="#가-문서-내용을-2-이상의-항목으로-구분하여-작성-하나의-항목만-있을-시">가. 문서 내용을 2 이상의 항목으로 구분하여 작성(하나의 항목만 있을 시 생략)</a></li>
+    <li><a class="lvl3" href="#실제-공문서-작성의-예">실제 공문서 작성의 예)</a></li>
+    <li><a class="lvl3" href="#나-붙임-문서-없이-끝날-때-문서의-끝-표시">나. 붙임 문서 없이 끝날 때 문서의 끝 표시</a></li>
+    <li><a class="lvl3" href="#다-붙임-문서-있을-때-문서의-끝-표시">다. 붙임 문서 있을 때 문서의 끝 표시</a></li>
+    <li><a class="lvl3" href="#라-본문이-표로-끝나는-경우">라. 본문이 표로 끝나는 경우</a></li>
+    <li><a class="lvl3" href="#끝">끝.</a></li>
+    <li><a class="lvl3" href="#마-본문-중-표의-중간에서-기재-사항이-끝나는-경우">마. 본문 중 표의 중간에서 기재 사항이 끝나는 경우</a></li>
+    <li><a class="lvl3" href="#바-합니다-보고용-공문">바. 합니다.(보고용 공문)</a></li>
+    <li><a class="lvl3" href="#사-첫째-항목이-하나만-있는-경우에는-기호를-부여하지-않음">사. 첫째 항목이 하나만 있는 경우에는 기호를 부여하지 않음</a></li>
+    <li><a class="" href="#5-부적절한-표기와-올바른-표기">5. 부적절한 표기와 올바른 표기</a></li>
+    <li><a class="lvl3" href="#가-행정용어-순화어-및-바른-표기어-일본식-용어를-한글용어로">가. 행정용어 순화어 및 바른 표기어(일본식 용어를 한글용어로)</a></li>
+    <li><a class="" href="#6-공문-양식-예시-잘된-예와-잘못된-예">6. 공문 양식 예시: 잘된 예와 잘못된 예</a></li>
+    <li><a class="lvl3" href="#0000학교-공문양식1-잘된-예">[0000학교 공문양식1] : 잘된 예</a></li>
+    <li><a class="lvl3" href="#00중학교-공문양식2-잘못된-예">[00중학교 공문양식2] : 잘못된 예</a></li>
+  </ul>
+</div>
+
+<div class="panel" id="quick3Panel">
+  <h4>⏱ 3분 핵심</h4>
+  <ol>
+    <li>공문서는 정확·간결·명료해야 하며, 쉬운 우리말과 어문 규범에 맞는 한글 표기를 원칙으로 합니다.</li>
+    <li>날짜는 '연월일' 글자를 생략하고 온점으로 표기하며(예: 2026. 3. 2.), 시간은 24시간제로 콜론(:)을 사용합니다(예: 15:20).</li>
+    <li>문서 내용이 둘 이상의 항목으로 구분될 때는 1.→가.→1)→가)→(1)→(가)→①의 순서로 항목 부호를 사용합니다.</li>
+  </ol>
+</div>
+
+<div class="panel" id="selectPrintPanel">
+  <h4>☑ 원하는 항목만 선택해서 인쇄 / PDF 저장</h4>
+  <div class="select-print-list" id="selectPrintList">
+    <label><input type="checkbox" checked data-target="psec-1"> 1. 근거</label>
+    <label><input type="checkbox" checked data-target="psec-2"> 2. 좋은 기안문이란?</label>
+    <label><input type="checkbox" checked data-target="psec-3"> 3. 문서의 일반사항</label>
+    <label><input type="checkbox" checked data-target="psec-4"> 4. 항목의 구분</label>
+    <label><input type="checkbox" checked data-target="psec-5"> 5. 부적절한 표기와 올바른 표기</label>
+    <label><input type="checkbox" checked data-target="psec-6"> 6. 공문 양식 예시: 잘된 예와 잘못된 예</label>
+  </div>
+  <div class="select-print-actions">
+    <button id="selectAllBtn" type="button">전체 선택</button>
+    <button id="selectPrintGoBtn" type="button" class="go">선택 항목 인쇄 · PDF 저장</button>
+  </div>
+</div>
+
+<div class="quick3-box">
+  <h4>⏱ 3분 핵심</h4>
+  <ol>
+    <li>공문서는 정확·간결·명료해야 하며, 쉬운 우리말과 어문 규범에 맞는 한글 표기를 원칙으로 합니다.</li>
+    <li>날짜는 '연월일' 글자를 생략하고 온점으로 표기하며(예: 2026. 3. 2.), 시간은 24시간제로 콜론(:)을 사용합니다(예: 15:20).</li>
+    <li>문서 내용이 둘 이상의 항목으로 구분될 때는 1.→가.→1)→가)→(1)→(가)→①의 순서로 항목 부호를 사용합니다.</li>
+  </ol>
+</div>
+
+<article class="doc-content">
+
+
+<section class="tr-section" id="psec-1"><h2 id="1-근거">1. 근거</h2>
+<p>• 「행정업무의 운영 및 혁신에 관한 규정」, 행정안전부 정보공개과 - 2025. 행정업무운영 편람(2025. 12.)</p>
+<p>• 「행정업무의 운영 및 혁신에 관한 규정 시행규칙」</p>
+</section><section class="tr-section" id="psec-2"><h2 id="2-좋은-기안문이란">2. 좋은 기안문이란?</h2>
+<p>가. 정확, 간결, 명료하며 이해가 쉽도록 작성된 것</p>
+<p>나. 행정용어 순화어를 활용하여 쉬운 우리말로 작성된 것</p>
+</section><section class="tr-section" id="psec-3"><h2 id="3-문서의-일반사항">3. 문서의 일반사항</h2>
+<h3 id="가-공문-중-관련-표기-방법">가. 공문 중 관련 표기 방법</h3>
+<blockquote class="note-block">
+<p>예1) 관련: 홍보담당관-1234(2024. 1. 1., “공문서 작성 시 관련 표시 안내”)</p>
+<p>예2) 관련: 홍보담당관-1234(2024. 1. 1.)호와 관련됩니다.</p>
+<p>예3) 관련: 홍보담당관-1234(2024. 1. 1.)호와 관련된 내용입니다.</p>
+</blockquote>
+<h3 id="나-글자-문서는-어문-규범에-맞게-한글로-작성">나. 글자 - 문서는 어문 규범에 맞게 한글로 작성</h3>
+<blockquote class="note-block">
+<p>- 쉽고 간명하게 표현</p>
+<p>- 뜻을 정확하게 전달하기 위하여 필요한 경우에는 괄호 안에 한자 그 밖의 외국어를 넣어도 됨.</p>
+<p>- 예) 법규 문서는 조문형식(條文形式)에 의하여…</p>
+</blockquote>
+<h3 id="다-숫자-아라비아-숫자로-씀-제7조제4항">다. 숫자 - 아라비아 숫자로 씀(제7조제4항)</h3>
+<h3 id="라-연호-서기연호를-쓰되-서기-는-표시하지-않음">라. 연호 - 서기연호를 쓰되, “서기”는 표시하지 않음</h3>
+<h3 id="마-날짜-숫자로-표기하되-연월일로도-표기-가능">마. 날짜 - 숫자로 표기하되 연월일로도 표기 가능</h3>
+<blockquote class="note-block">
+<p>- 년, 월, 일의 글자는 생략하고 그 자리에 온점 찍어 표시</p>
+<p>- 월, 일 표기 시 ‘0’은 표기하지 않음</p>
+<p>- 예1) 2018년 4월 18일(○) 또는 2018. 4. 18.(○), 2018.4.18.(×), 2018. 04. 18.(×)</p>
+<p>- 예2) 2018.10.28-29(×) → 2018. 10. 28.~29.(○)</p>
+<p>- 연도 생략해서 쓸 때는 작은따옴표 뒤의 것을 사용</p>
+<p>- 예3) 2018년을 생략해서 사용할 경우: ’18(×) → ’18.(○), ’18년(○)</p>
+</blockquote>
+<h3 id="바-시간-시-분은-24시간제에-따라-숫자로-표기">바. 시간 - 시·분은 24시간제에 따라 숫자로 표기</h3>
+<blockquote class="note-block">
+<p>- 시·분의 글자는 생략하고 그 사이에 쌍점(:)을 찍어 구분</p>
+<p>- 예) 오후 3시 20분(×) → 15:20(○) [시간 표시 쌍점(:)은 양쪽 띄어 쓰지 않음]</p>
+</blockquote>
+<h3 id="사-시간-표시를-하는-경우를-제외한-쌍점-의-경우-왼쪽은-붙이고-오른쪽은">사. 시간 표시를 하는 경우를 제외한 쌍점(:)의 경우, 왼쪽은 붙이고 오른쪽은 한 칸(1타) 띄움</h3>
+<blockquote class="note-block">
+<p>예) 장소:v2층 도서관(×) → 장소: v2층 도서관(○)</p>
+</blockquote>
+<p><strong>아. 문서에 서식, 금전, 유가증권, 참고서류, 기타의 물품이 첨부되는 때에는 본문내용이 끝난 다음 줄에 붙임을 표시하고 첨부물의 명칭과 수량을 씀.</strong></p>
+<h3 id="자-금액표시-아라비아-숫자로-쓰되-숫자-다음에-괄호를-하고-한글로-기재-">자. 금액표시 - 아라비아 숫자로 쓰되, 숫자 다음에 괄호를 하고 한글로 기재(규칙제12조제2항)</h3>
+<blockquote class="note-block">
+<p>예) 금113,560원(금일십일만삼천오백육십원)</p>
+</blockquote>
+</section><section class="tr-section" id="psec-4"><h2 id="4-항목의-구분">4. 항목의 구분</h2>
+<h3 id="가-문서-내용을-2-이상의-항목으로-구분하여-작성-하나의-항목만-있을-시">가. 문서 내용을 2 이상의 항목으로 구분하여 작성(하나의 항목만 있을 시 생략)</h3>
+<div class="table-wrap"><table class="data-table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>구분</strong></th>
+<th><strong>항목 부호</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>첫째 항목</td>
+<td>1. 2. 3. 4.…</td>
+</tr>
+<tr class="even">
+<td>둘째 항목</td>
+<td>가. 나. 다. 라.…</td>
+</tr>
+<tr class="odd">
+<td>셋째 항목</td>
+<td>1) 2) 3) 4)…</td>
+</tr>
+<tr class="even">
+<td>넷째 항목</td>
+<td>가) 나) 다) 라)…</td>
+</tr>
+<tr class="odd">
+<td>다섯째 항목</td>
+<td>(1) (2) (3) (4)…</td>
+</tr>
+<tr class="even">
+<td>여섯째 항목</td>
+<td>(가) (나) (다) (라)…</td>
+</tr>
+<tr class="odd">
+<td>일곱째 항목</td>
+<td>① ② ③ ④ …</td>
+</tr>
+<tr class="even">
+<td>여덟째 항목</td>
+<td>㉮ ㉯ ㉰ ㉱ …</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="실제-공문서-작성의-예">실제 공문서 작성의 예)</h3>
+<div class="info-box"><p>교육혁신을 넘어 미래교육으로</p>
+<p>수신 경상남도○○교육지원청교육장(교육지원과장)</p>
+<p>(경유)</p>
+<p>제목 배움중심수업 연수 신청자 명단 제출</p>
+<p>1. 관련: 중등교육과-1021(2021. 3. 15.), 중등교육과-2022(2022. 12. 20.)</p>
+<p>2. 2021년 배움중심수업 연수 신청자 명단을 제출합니다.</p>
+<p>가. 성명: 홍길동</p>
+<p>나. 연락처</p>
+<p>1) 핸드폰: 010-0000-0000</p>
+<p>가) 0000000</p>
+<p>3. 필요한 내용을 본문에 기재합니다. 끝.</p>
+<p>붙임 1. 000계획서 1부.</p>
+<p>2. 000계획서 1부. 끝.</p>
+<p>(붙임이 1개 일때는 번호를 붙이지 않음)</p></div>
+<h3 id="나-붙임-문서-없이-끝날-때-문서의-끝-표시">나. 붙임 문서 없이 끝날 때 문서의 끝 표시</h3>
+<div class="info-box">(본문) -----------주시기 바랍니다. 끝.</div>
+<h3 id="다-붙임-문서-있을-때-문서의-끝-표시">다. 붙임 문서 있을 때 문서의 끝 표시</h3>
+<div class="info-box"><p>(본문) -----------주시기 바랍니다.</p>
+<p>붙임 1. 000계획서 1부.</p>
+<p>2. 000계획서 1부. 끝.</p></div>
+<h3 id="라-본문이-표로-끝나는-경우">라. 본문이 표로 끝나는 경우</h3>
+<div class="table-wrap"><table class="data-table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>번호</strong></th>
+<th><strong>이름</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>000</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="끝">끝.</h3>
+<h3 id="마-본문-중-표의-중간에서-기재-사항이-끝나는-경우">마. 본문 중 표의 중간에서 기재 사항이 끝나는 경우</h3>
+<div class="table-wrap"><table class="data-table">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>번호</strong></th>
+<th><strong>이름</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>000</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>※ 표의 위치는 정해진 사항이 없으며, 왼쪽 기본선부터 전체를 사용하거나 표 제목의 아래 위치부터 시작함(행정안전부, 「행정업무운영 편람」(2022. 12.)).</p>
+<h3 id="바-합니다-보고용-공문">바. 합니다.(보고용 공문)</h3>
+<div class="info-box">~하고자 합니다.(내부결재)[단, 제목에 ‘보고’가 들어갈 시에는 ~합니다.로 함]</div>
+<h3 id="사-첫째-항목이-하나만-있는-경우에는-기호를-부여하지-않음">사. 첫째 항목이 하나만 있는 경우에는 기호를 부여하지 않음</h3>
+<div class="info-box"><p>수신 경상남도○○교육지원청교육장(교육지원과장)</p>
+<p>(경유)</p>
+<p>제목 배움중심수업 연수 신청자 명단 제출</p>
+<p>신규교사 문서관리 교육을 다음과 같이 실시하오니 신규교사들께서는 반드시 참석하여 주시기 바랍니다.</p>
+<p>1. 일시: 2023. 3. 7.(화) 16:00</p>
+<p>2. 장소: 교무실</p>
+<p>3. 참석 대상: 신규교사 3명. 끝.</p></div>
+<p><strong>아. 위원회 개최 결과 등을 기안할 때(붙임 파일의 비전자문서(스캔파일 또는 *.pdf) 등록을 첨부물분리등록으로 등록해야 함)</strong></p>
+<blockquote class="note-block">
+<p><strong>가) 기안문 작성</strong></p>
+</blockquote>
+<div class="info-box"><p>수신 내부결재</p>
+<p>(경유)</p>
+<p>제목 2023학년도 제1차 학교도서관운영위원회 회의 결과 보고</p>
+<p>1. 관련: ○○학교-1021(2023. 3. 15.)</p>
+<p>2. 2023학년도 제1차 학업성적 관리위원회 회의 결과를 아래와 같이 보고합니다.</p>
+<p>가. 일시: 2023. 3. 25.(월) 16:00~</p>
+<p>나. 장소: 도서관</p>
+<p>다. 참석자: [붙임2] 등록부 참고</p>
+<p>라. 회의 결과 세부내용 [붙임3] 참고</p>
+<p>학교 도서관 신규 도서 구매</p>
+<p>붙임 1. 신규 도서 구매 목록 1부.</p>
+<p>2. 등록부 1부.</p>
+<p>3. 회의록 1부. 끝.</p>
+<p>(붙임1: 엑셀파일 → 전자가 원본 / 붙임2,3: 스캔파일 → 비전자가 원본)</p></div>
+<blockquote class="note-block">
+<p><strong>나) 기안문 승인 후 해당문서 체크 후 첨부물 분리등록 클릭</strong></p>
+<p>- 제목과 쪽수만 입력하고 저장</p>
+<p>- 문서번호 앞 상태에서 손바닥에 마우스를 이동시켜 클릭(문서 맨 밑에 해당 내용이 뜸) → 분리등록 클릭 → 문서등록번호 확인</p>
+<p>- 비전자 첨부물 앞에 결재 받은 전자기안문 사본 출력(우측 상단에 원본대조필(직인) 찍음)하여 함께 보존</p>
+</blockquote>
+</section><section class="tr-section" id="psec-5"><h2 id="5-부적절한-표기와-올바른-표기">5. 부적절한 표기와 올바른 표기</h2>
+<div class="table-wrap"><table class="data-table">
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 26%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>구분</strong></th>
+<th><strong>표기원칙</strong></th>
+<th><strong>부적절한 표기</strong></th>
+<th><strong>올바른 표기</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>언어</td>
+<td>한글 사용 원칙. 부득이한 경우 영문·한자 병기 가능(병기 시 ( ) 안에 표시)</td>
+<td>LMS</td>
+<td>학습관리시스템(LMS)</td>
+</tr>
+<tr class="even">
+<td>숫자</td>
+<td>아라비아 숫자로 표기</td>
+<td>이십명</td>
+<td>20명</td>
+</tr>
+<tr class="odd">
+<td>날짜</td>
+<td>일일 또는 날짜 표기, 일일 사이에는 한 칸 띄움</td>
+<td>2021.01.20(수)</td>
+<td>2021. 1. 20.(수) / 2021년 1월 20일(수)</td>
+</tr>
+<tr class="even">
+<td>시분</td>
+<td>24시간제로 시분은 : 로 구분</td>
+<td>오후 3시 30분</td>
+<td>15:30</td>
+</tr>
+<tr class="odd">
+<td>금액</td>
+<td>우측 참조</td>
+<td>15,790원</td>
+<td>금15,790원(금일만오천칠백구십원)</td>
+</tr>
+<tr class="even">
+<td>관련대호</td>
+<td>우측 참조</td>
+<td>인성과-120(2021.1.2.)호</td>
+<td>인성과-120(2021. 1. 2.)</td>
+</tr>
+<tr class="odd">
+<td>날짜 뒤</td>
+<td>우측 참조</td>
+<td>2022. 9. 1.자 업무분장</td>
+<td>2022. 9. 1. 자 업무분장</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="가-행정용어-순화어-및-바른-표기어-일본식-용어를-한글용어로">가. 행정용어 순화어 및 바른 표기어(일본식 용어를 한글용어로)</h3>
+<div class="table-wrap"><table class="data-table" style="width:100%;">
+<colgroup>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>대상용어</strong></th>
+<th><strong>순화어</strong></th>
+<th><strong>대상용어</strong></th>
+<th><strong>순화어</strong></th>
+<th><strong>대상용어</strong></th>
+<th><strong>순화어</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3D</td>
+<td>3차원, 입체</td>
+<td>가금류</td>
+<td>사육조류</td>
+<td>가매장</td>
+<td>임시 매장</td>
+</tr>
+<tr class="even">
+<td>가수용</td>
+<td>임시 수용</td>
+<td>가접수</td>
+<td>임시 접수</td>
+<td>가제목</td>
+<td>임시 제목</td>
+</tr>
+<tr class="odd">
+<td>갤러리</td>
+<td>화랑</td>
+<td>거마비</td>
+<td>교통비</td>
+<td>고지 방송</td>
+<td>안내방송, 알림방송</td>
+</tr>
+<tr class="even">
+<td>공란</td>
+<td>빈칸</td>
+<td>공사 다망중</td>
+<td>바쁘신 가운데</td>
+<td>공여</td>
+<td>제공</td>
+</tr>
+<tr class="odd">
+<td>과년도</td>
+<td>지난해</td>
+<td>구좌</td>
+<td>계좌</td>
+<td>내역</td>
+<td>세부 내용</td>
+</tr>
+<tr class="even">
+<td>방카 슈랑스</td>
+<td>은행연계보험</td>
+<td>복명서</td>
+<td>결과 보고서</td>
+<td>불입</td>
+<td>납입</td>
+</tr>
+<tr class="odd">
+<td>상신</td>
+<td>올림, 보고</td>
+<td>소명</td>
+<td>밝히다</td>
+<td>엄수하기 바랍니다.</td>
+<td>꼭 지켜 주시기 바랍니다.</td>
+</tr>
+<tr class="even">
+<td>업로드</td>
+<td>올리기</td>
+<td>위규</td>
+<td>규정 위반</td>
+<td>재회정</td>
+<td>다시 정함</td>
+</tr>
+<tr class="odd">
+<td>유기 문서</td>
+<td>기한 문서</td>
+<td>인코 수가</td>
+<td>진료비, 치료비</td>
+<td>차출없이</td>
+<td>차질 없이</td>
+</tr>
+<tr class="even">
+<td>저감</td>
+<td>낮춤, 줄임</td>
+<td>첨부</td>
+<td>붙임</td>
+<td>하도부</td>
+<td>보냄 장부</td>
+</tr>
+<tr class="odd">
+<td>~에 의거하여</td>
+<td>~에 따라(서)</td>
+<td>~에 의하여</td>
+<td>~에 따라</td>
+<td>우리학교</td>
+<td>우리 학교</td>
+</tr>
+<tr class="even">
+<td>기 통보한</td>
+<td>이미 알린</td>
+<td>기본계획 상의</td>
+<td>기본계획상의</td>
+<td>공모건, 신청건</td>
+<td>공모 건, 신청 건</td>
+</tr>
+<tr class="odd">
+<td>사업 명, 행사 명</td>
+<td>사업명, 행사명</td>
+<td>현안 문제</td>
+<td>현안 사항</td>
+<td>제고하고</td>
+<td>높이고</td>
+</tr>
+<tr class="even">
+<td>실시하다</td>
+<td>하다</td>
+<td>(홈페이지에) 탑재하다</td>
+<td>(누리집에) 올리다, 게시하다</td>
+<td>차질없이</td>
+<td>차질 없이</td>
+</tr>
+<tr class="odd">
+<td>지체 없이</td>
+<td>지체하지 않고</td>
+<td>지체함이 없이</td>
+<td>바로, 곧바로</td>
+<td>만전을 기하여</td>
+<td>허술함이 없도록하여</td>
+</tr>
+<tr class="even">
+<td>기일을 엄수하여</td>
+<td>날짜를 지켜</td>
+<td>엄수하기 바랍니다.</td>
+<td>꼭 지켜 주시기 바랍니다.</td>
+<td>작성할 것</td>
+<td>작성해 주십시오</td>
+</tr>
+<tr class="odd">
+<td>요망</td>
+<td>바랍니다.</td>
+<td>즉시 제출 바람</td>
+<td>제출해 주십시오</td>
+<td>적극 협조 바람</td>
+<td>적극적으로 협조해 주시기 바랍니다.</td>
+</tr>
+<tr class="even">
+<td>적극 뒷받침하기 위해</td>
+<td>적극적으로 뒷받침하기 위해</td>
+<td>조사 결과에 따르면</td>
+<td>조사한 결과에 따르면</td>
+<td>적의 조치 요망</td>
+<td>적절히 조치해 주시기 바랍니다.</td>
+</tr>
+<tr class="odd">
+<td>신속 대응을 위해</td>
+<td>신속하게 대응할 수 있도록</td>
+<td>적극 이용 바람</td>
+<td>적극적으로 이용하기 바랍니다.</td>
+<td>참석최소 1인 이상</td>
+<td>최소 1명 이상 참석하여 주시기 바랍니다.</td>
+</tr>
+<tr class="even">
+<td>다음의 [표]와 같이</td>
+<td>[표]와 같이</td>
+<td>산출내역서</td>
+<td>산출 명세서</td>
+<td>정비 내역</td>
+<td>정비 내용</td>
+</tr>
+<tr class="odd">
+<td>km</td>
+<td>km (ctrl+F10눌러서)</td>
+<td>당초</td>
+<td>기존</td>
+<td>소관</td>
+<td>담당</td>
+</tr>
+<tr class="even">
+<td>10매</td>
+<td>10장</td>
+<td>정원</td>
+<td>정·현원</td>
+<td>약 200여 명</td>
+<td>약 20명</td>
+</tr>
+<tr class="odd">
+<td>개소</td>
+<td>곳</td>
+<td>3분기</td>
+<td>3/4분기</td>
+<td>식순</td>
+<td>차례</td>
+</tr>
+<tr class="even">
+<td>20일 경</td>
+<td>20일경</td>
+<td>제세 공과금</td>
+<td>각종 세금</td>
+<td>일할 계산</td>
+<td>날짜 계산</td>
+</tr>
+<tr class="odd">
+<td>신년도</td>
+<td>새해</td>
+<td>과년도</td>
+<td>지난해</td>
+<td>상기</td>
+<td>위의</td>
+</tr>
+<tr class="even">
+<td>T/팀</td>
+<td>특별 팀, 전담 팀</td>
+<td>필히</td>
+<td>반드시</td>
+<td>면밀히</td>
+<td>자세히</td>
+</tr>
+<tr class="odd">
+<td>강구하다</td>
+<td>마련하다</td>
+<td>사료됨</td>
+<td>생각함</td>
+<td>수범사례</td>
+<td>잘된 사례</td>
+</tr>
+<tr class="even">
+<td>금년</td>
+<td>올해</td>
+<td>금번</td>
+<td>이번</td>
+<td>금회</td>
+<td>이번</td>
+</tr>
+<tr class="odd">
+<td>향후</td>
+<td>앞으로</td>
+<td>통할하다</td>
+<td>총괄하다</td>
+<td>첨부 서류</td>
+<td>붙임 서류</td>
+</tr>
+<tr class="even">
+<td>첫번째</td>
+<td>첫 번째</td>
+<td>1일차</td>
+<td>1일 차</td>
+<td>1박2일</td>
+<td>1박 2일</td>
+</tr>
+<tr class="odd">
+<td>당해 법인</td>
+<td>해당 법인</td>
+<td>공란</td>
+<td>빈칸</td>
+<td>표찰</td>
+<td>이름표</td>
+</tr>
+<tr class="even">
+<td>퇴청</td>
+<td>퇴근</td>
+<td>시간장치</td>
+<td>잠금장치</td>
+<td>징구 서류</td>
+<td>요청 서류</td>
+</tr>
+<tr class="odd">
+<td>시너지효과</td>
+<td>상승효과</td>
+<td>체크리스트</td>
+<td>점검표</td>
+<td>시방서</td>
+<td>세부 안내서</td>
+</tr>
+<tr class="even">
+<td>사양서</td>
+<td>설명서</td>
+<td>연면적</td>
+<td>총면적</td>
+<td>과원</td>
+<td>정원 초과, 인원 초과</td>
+</tr>
+<tr class="odd">
+<td>정원 수</td>
+<td>정원</td>
+<td>학생수</td>
+<td>학생 수</td>
+<td>월2회</td>
+<td>월 2회</td>
+</tr>
+<tr class="even">
+<td>이력서 및 자기소개서 1부</td>
+<td>이력서와 자기소개서 각 1부</td>
+<td>경상남도 소재</td>
+<td>경상남도에 있는</td>
+<td>일체 반환하지 않으며</td>
+<td>돌려주지 않으며</td>
+</tr>
+<tr class="odd">
+<td>특별사유가 없는 한</td>
+<td>특별한 사유가 없으면</td>
+<td>1회에 한하여</td>
+<td>한 번만</td>
+<td>홍길동씨</td>
+<td>홍길동 씨</td>
+</tr>
+<tr class="even">
+<td>홍길동 (익명처리시)홍xx</td>
+<td>매입하는데</td>
+<td>매입하는 데</td>
+<td>안된다</td>
+<td>안 된다</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>첫 해</td>
+<td>첫해</td>
+<td>불참한 관계로</td>
+<td>불참하였으므로</td>
+<td>워크숍</td>
+<td>공동 연수</td>
+</tr>
+<tr class="even">
+<td>결손가정</td>
+<td>한 부모 가족</td>
+<td>여성 예술가</td>
+<td>예술가</td>
+<td>학부형</td>
+<td>학부모</td>
+</tr>
+<tr class="odd">
+<td>레시피</td>
+<td>조리법</td>
+<td>이벤트</td>
+<td>기획 행사</td>
+<td>존</td>
+<td>구역</td>
+</tr>
+<tr class="even">
+<td>슬로건</td>
+<td>구호, 표어</td>
+<td>셔틀버스</td>
+<td>순환버스</td>
+<td>첫 대면할 경우</td>
+<td>처음 대면할 때</td>
+</tr>
+<tr class="odd">
+<td>IT</td>
+<td>정보 기술(IT)</td>
+<td>MOU</td>
+<td>업무 협정(MOU)</td>
+<td>언택트</td>
+<td>비대면</td>
+</tr>
+<tr class="even">
+<td>온택트</td>
+<td>영상 대면</td>
+<td>블렌디드 러닝</td>
+<td>비대면 연계 교육</td>
+<td>웨비나</td>
+<td>화상 토론회</td>
+</tr>
+<tr class="odd">
+<td>애자일 조직</td>
+<td>탄력 조직</td>
+<td>포스트 코로나 시대</td>
+<td>코로나 시대 이후</td>
+<td>위드 코로나 시대</td>
+<td>코로나 시대에 맞춘</td>
+</tr>
+<tr class="even">
+<td>모델학교</td>
+<td>시범학교</td>
+<td>모니터링</td>
+<td>점검, 실태조사</td>
+<td>포인트</td>
+<td>적립금</td>
+</tr>
+<tr class="odd">
+<td>홈페이지</td>
+<td>누리집</td>
+<td>팝업 창</td>
+<td>알림창</td>
+<td>매뉴얼</td>
+<td>설명서, 안내서</td>
+</tr>
+<tr class="even">
+<td>리플릿</td>
+<td>광고지, 홍보지</td>
+<td>힐링</td>
+<td>치유</td>
+<td>인프라</td>
+<td>기반 시설</td>
+</tr>
+<tr class="odd">
+<td>H.P.</td>
+<td>휴대전화</td>
+<td>FAX</td>
+<td>팩스, 전송</td>
+<td>SMS</td>
+<td>문자 메시지</td>
+</tr>
+<tr class="even">
+<td>E-mail</td>
+<td>전자 우편</td>
+<td>가이드</td>
+<td>안내자, 안내원</td>
+<td>가이드라인</td>
+<td>지침, 방침</td>
+</tr>
+<tr class="odd">
+<td>가이드북</td>
+<td>안내서, 지침서</td>
+<td>로그인</td>
+<td>접속</td>
+<td>로그아웃</td>
+<td>접속 해제</td>
+</tr>
+<tr class="even">
+<td>결석계</td>
+<td>결석 신고서</td>
+<td>무대뽀</td>
+<td>무모, 막무가내</td>
+<td>수학여행</td>
+<td>문화체험여행, 배움나비</td>
+</tr>
+<tr class="odd">
+<td>현해탄</td>
+<td>대한 해협</td>
+<td>독고다이</td>
+<td>독불장군</td>
+<td>땡깡</td>
+<td>생떼, 억지</td>
+</tr>
+<tr class="even">
+<td>반장</td>
+<td>학급자치회장, 봉사위원</td>
+<td>축제</td>
+<td>잔치, 축전</td>
+<td>훈화</td>
+<td>도움 말씀, 덕담</td>
+</tr>
+<tr class="odd">
+<td>간담회</td>
+<td>다모임</td>
+<td>기라성</td>
+<td>빛나는 별</td>
+<td>사정회</td>
+<td>평가회</td>
+</tr>
+<tr class="even">
+<td>석패</td>
+<td>아깝게 지나 어리운 패배</td>
+<td>절치선</td>
+<td>자름선</td>
+<td>탕비실</td>
+<td>준비실</td>
+</tr>
+<tr class="odd">
+<td>갑지나다</td>
+<td>먹인다, 따지다</td>
+<td>만당</td>
+<td>가득</td>
+<td>순부</td>
+<td>합의 결과 행정 겨루기</td>
+</tr>
+<tr class="even">
+<td>엑기스</td>
+<td>진액, 청, 알짜</td>
+<td>유도리</td>
+<td>융통성</td>
+<td>앙꼬</td>
+<td>팥소</td>
+</tr>
+<tr class="odd">
+<td>지라시</td>
+<td>광고지</td>
+<td>카라, 에리</td>
+<td>깃, 옷깃</td>
+<td>간주하다</td>
+<td>보다, 여기다</td>
+</tr>
+<tr class="even">
+<td>견적</td>
+<td>어림셈, 추산</td>
+<td>다스</td>
+<td>타</td>
+<td>동장군</td>
+<td>강추위</td>
+</tr>
+<tr class="odd">
+<td>심판관(18번)</td>
+<td>이창국</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>“ ”: 직접 대화를 표시하거나 말이나 글 직접 인용 시</p>
+<p>‘ ’: 소제목, 그림이나 드라마와 같은 예술 작품의 제목, 상호, 법률, 규정 나타낼 때, 문장 내용 중에 강조할 부분 표시할 때</p>
+</section><section class="tr-section" id="psec-6"><h2 id="6-공문-양식-예시-잘된-예와-잘못된-예">6. 공문 양식 예시: 잘된 예와 잘못된 예</h2>
+<h3 id="0000학교-공문양식1-잘된-예">[0000학교 공문양식1] : 잘된 예</h3>
+<div class="info-box"><p>본문의 내용을 보면 붙임을 보지 않아도 대략의 내용을 파악할 수 있도록 공문 기안함.</p>
+<p>0000학교</p>
+<p>수신 내부결재</p>
+<p>(경유)</p>
+<p>제목 2025. 00행사 운영 계획</p>
+<p>1. 관련: 2025학년도 학교교육계획-3733(2025. 5. 6.)호와 관련됩니다.</p>
+<p>2. 2025학년도 00행사 운영 계획을 붙임과 같이 수립하여 운영하고자 합니다.</p>
+<p>가. 대상: 전교생 중 희망자</p>
+<p>나. 일정: 2025. 00. 00.(월)~2025. 00. 00.(금)</p>
+<p>다. 장소: 000</p>
+<p>라. 지도교사: 000 외 0명</p>
+<p>마. 내용: 행사내용 / 일정 및 시간 / 장소 / 내용 / 지도교사</p>
+<p>붙임 2025. 00행사 운영 계획 1부. 끝.</p></div>
+<h3 id="00중학교-공문양식2-잘못된-예">[00중학교 공문양식2] : 잘못된 예</h3>
+<div class="info-box"><p>붙임의 내용을 보지 않으면 무슨 내용인지 몰라서 붙임 파일을 일일이 열어 보아야 함. (결재시 시간이 많이 소모됨)</p>
+<p>0000학교</p>
+<p>수신 내부결재</p>
+<p>(경유)</p>
+<p>제목 2025. 00행사 운영 계획</p>
+<p>1. 관련: 2025학년도 학교교육계획-3733(2025.05.06.)</p>
+<p>2. 2025. 00행사 운영 계획을 붙임과 같이 수립하여 운영하고자 합니다.</p>
+<p>붙임 2025.00행사 운영 계획 1부. 끝.</p></div>
+</section>
+</article>
+
+<div class="doc-footer-note">
+  본 자료는 학교 내부 제공 원본 연수자료를 웹 열람·인쇄용으로 재구성한 것입니다. 법령·지침 개정 여부는 정기적으로 재확인이 필요합니다.<br>
+  <span id="pageFooterMeta">기준일·최종 검토일 불러오는 중…</span> · 창원경일고등학교 교직원 연수 포털
+</div>
+
+<script src="../../data/trainings.js"></script>
+<script src="../../app.js"></script>
+</body>
+</html>

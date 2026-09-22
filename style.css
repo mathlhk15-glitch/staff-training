@@ -1,0 +1,283 @@
+/* 창원경일고등학교 교직원 연수 포털 - 공통 스타일 */
+:root{
+  --navy:#12305c;
+  --navy-dark:#0b1f3d;
+  --accent:#2563eb;
+  --accent-soft:#eef3ff;
+  --gold:#b7862f;
+  --ink:#1f2937;
+  --ink-soft:#5b6472;
+  --line:#e3e7ee;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --warn-bg:#fff4e5;
+  --warn-ink:#8a4b00;
+  --ok-bg:#e8f7ee;
+  --ok-ink:#166534;
+  --radius:14px;
+  --shadow:0 2px 10px rgba(18,48,92,.08);
+  font-size:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.62;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+
+/* ---------- header / topbar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:linear-gradient(180deg,var(--navy),var(--navy-dark));
+  color:#fff;
+  padding:14px 18px calc(14px + env(safe-area-inset-top,0px));
+  padding-top:calc(14px + env(safe-area-inset-top,0px));
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.topbar-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand .school{font-size:.78rem;letter-spacing:.04em;color:#cfe0ff;font-weight:500}
+.brand .title{font-size:1.28rem;font-weight:800;color:#fff}
+.brand a.home-link{color:#fff}
+.brand a.home-link:hover{text-decoration:none;opacity:.85}
+.topbar-meta{margin-left:auto;text-align:right;font-size:.78rem;color:#cfe0ff}
+
+/* ---------- search ---------- */
+.search-wrap{max-width:1100px;margin:18px auto 0;padding:0 18px}
+.search-box{
+  position:relative;background:#fff;border-radius:999px;
+  box-shadow:var(--shadow);border:1px solid var(--line);
+  display:flex;align-items:center;padding:6px 8px 6px 18px;gap:8px;
+}
+.search-box input{
+  flex:1;border:none;outline:none;font-size:1rem;padding:10px 4px;background:transparent;color:var(--ink);
+}
+.search-box .icon{color:var(--ink-soft);font-size:1.05rem}
+.search-clear{border:none;background:var(--bg);color:var(--ink-soft);border-radius:50%;width:28px;height:28px;cursor:pointer;display:none}
+.search-clear.show{display:inline-block}
+#searchResults{
+  max-width:1100px;margin:10px auto 0;padding:0 18px;
+}
+.search-result-card{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+.search-result-card h4{margin:0 0 4px;font-size:1rem}
+.search-result-card .snippet{font-size:.88rem;color:var(--ink-soft)}
+.search-result-card mark{background:#ffe58a;padding:0 2px;border-radius:3px}
+.search-hint{color:var(--ink-soft);font-size:.85rem;padding:4px 4px 0}
+
+/* ---------- category filter ---------- */
+.filter-row{max-width:1100px;margin:16px auto 0;padding:0 18px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  padding:8px 14px;border-radius:999px;font-size:.86rem;cursor:pointer;font-weight:600;
+}
+.chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ---------- main / sections ---------- */
+main{max-width:1100px;margin:0 auto;padding:18px 18px 60px}
+.section-title{font-size:1rem;font-weight:800;color:var(--navy);margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+.section-title .cnt{font-weight:500;color:var(--ink-soft);font-size:.82rem}
+
+.pinned-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.pinned-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s;
+}
+.pinned-card:hover{transform:translateY(-2px)}
+.pinned-card .ico{font-size:1.5rem}
+.pinned-card .t{font-weight:800;margin-top:6px}
+.pinned-card .k{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
+
+.card-list{display:flex;flex-direction:column;gap:10px}
+.tr-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start;
+  cursor:pointer;
+}
+.tr-card:hover{border-color:#c9d6ee}
+.tr-card .body{flex:1;min-width:0}
+.tr-card .cat-tag{font-size:.72rem;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;display:inline-block;margin-bottom:6px}
+.tr-card h3{margin:0 0 4px;font-size:1.05rem}
+.tr-card .desc{color:var(--ink-soft);font-size:.86rem;margin:0 0 8px}
+.tr-card .audience-tabs{display:flex;gap:6px;margin-top:2px}
+.tr-card .audience-tabs a{font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--ink-soft);text-decoration:none;background:#fff}
+.tr-card .audience-tabs a:hover{border-color:var(--primary);color:var(--primary);background:#f4f8ff}
+.tr-card .meta-row{display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.badge{font-size:.72rem;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.badge.ok{background:var(--ok-bg);color:var(--ok-ink)}
+.badge.warn{background:var(--warn-bg);color:var(--warn-ink)}
+.star-btn{border:none;background:transparent;font-size:1.25rem;cursor:pointer;color:#d8b34a;line-height:1}
+.star-btn.off{color:#cbd2de}
+
+.empty-state{text-align:center;color:var(--ink-soft);padding:60px 20px}
+
+footer.site-footer{max-width:1100px;margin:0 auto;padding:24px 18px 50px;color:var(--ink-soft);font-size:.8rem;border-top:1px solid var(--line)}
+
+/* ---------- doc page ---------- */
+.doc-header{max-width:900px;margin:0 auto;padding:18px 18px 0}
+.doc-back{font-size:.85rem;color:#cfe0ff}
+.doc-title{font-size:1.5rem;font-weight:800;color:var(--navy);margin:10px 0 6px}
+.doc-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center}
+.doc-badges .meta{font-size:.78rem;color:var(--ink-soft)}
+
+.toolbar{
+  max-width:900px;margin:14px auto 0;padding:0 18px;
+  display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:78px;z-index:30;
+}
+.tb-btn{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:9px 14px;font-size:.86rem;font-weight:700;color:var(--navy);cursor:pointer;
+  box-shadow:var(--shadow);display:inline-flex;align-items:center;gap:6px;
+}
+.tb-btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tb-btn.on{background:var(--accent-soft);border-color:var(--accent)}
+
+.panel{
+  max-width:900px;margin:10px auto 0;padding:14px 18px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:none;
+}
+.panel.show{display:block}
+.panel h4{margin:0 0 10px;font-size:.92rem;color:var(--navy)}
+.toc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toc-list a{color:var(--ink);font-size:.9rem}
+.toc-list a.lvl3{padding-left:16px;color:var(--ink-soft);font-size:.85rem}
+.toc-list a.lvl4{padding-left:32px;color:var(--ink-soft);font-size:.82rem}
+
+.select-print-list label{
+  display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.9rem;border-bottom:1px dashed var(--line);
+}
+.select-print-list label:last-child{border-bottom:none}
+.select-print-actions{display:flex;gap:8px;margin-top:12px}
+.select-print-actions button{
+  border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 12px;font-size:.84rem;cursor:pointer;font-weight:700;
+}
+.select-print-actions button.go{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+.quick3-box{
+  max-width:900px;margin:14px auto 0;padding:16px 20px;background:linear-gradient(180deg,#fffdf6,#fff);
+  border:1px solid #f0dfae;border-left:5px solid var(--gold);border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.quick3-box h4{margin:0 0 8px;color:#8a5a00;font-size:.95rem}
+.quick3-box ol{margin:0;padding-left:20px}
+.quick3-box li{margin-bottom:6px;font-size:.92rem}
+
+.doc-content{max-width:900px;margin:18px auto 0;padding:0 18px 80px;font-size:.98rem}
+.doc-content h2{
+  font-size:1.18rem;color:var(--navy);border-bottom:2px solid var(--navy);
+  padding-bottom:8px;margin:34px 0 14px;
+}
+.tr-section:first-of-type h2{margin-top:6px}
+.doc-content h3{font-size:1.03rem;color:#1e3a67;margin:22px 0 8px}
+.doc-content h4{font-size:.96rem;color:#334155;margin:16px 0 6px}
+.doc-content p{margin:0 0 12px}
+.doc-content ul,.doc-content ol{margin:0 0 14px;padding-left:22px}
+.doc-content li{margin-bottom:4px}
+
+.info-box{
+  background:#f5f8ff;border:1px solid #dbe6ff;border-left:4px solid var(--accent);
+  border-radius:10px;padding:14px 18px;margin:14px 0;
+}
+.info-box p{margin:0 0 6px}
+.info-box p:last-child{margin-bottom:0}
+.info-box p strong:first-child{color:var(--navy)}
+
+.qa-box{
+  background:#fff;border:1px solid var(--line);border-radius:10px;margin:14px 0;overflow:hidden;
+}
+.qa-box .qa-q{background:#eef3ff;color:var(--navy);font-weight:700;margin:0;padding:10px 16px}
+.qa-box .qa-a{margin:0;padding:12px 16px;color:var(--ink)}
+
+blockquote.note-block{
+  margin:14px 0;padding:10px 16px;border-left:3px solid #cbd5e1;background:#f8fafc;color:var(--ink-soft);
+}
+blockquote.note-block p{margin:0 0 4px}
+
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:8px;border:1px solid var(--line)}
+table.data-table{border-collapse:collapse;width:100%;font-size:.9rem}
+table.data-table th,table.data-table td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+table.data-table thead th{background:var(--navy);color:#fff;font-weight:700}
+table.data-table tbody tr:nth-child(even){background:#f7f9fc}
+
+.doc-footer-note{max-width:900px;margin:30px auto 60px;padding:0 18px;color:var(--ink-soft);font-size:.8rem;border-top:1px solid var(--line);padding-top:16px}
+
+/* audience tab switch (teacher-protection group) */
+.audience-switch{display:flex;gap:6px;margin:8px 0 0}
+.audience-switch a{
+  border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:.82rem;color:var(--ink-soft);font-weight:700;
+}
+.audience-switch a.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* in-app browser banner */
+.inapp-banner{
+  display:none;max-width:900px;margin:14px auto 0;padding:0 18px;
+}
+.inapp-banner .box{
+  background:#fff4e5;border:1px solid #f4cb85;border-radius:12px;padding:12px 16px;font-size:.86rem;color:#8a4b00;
+  display:flex;align-items:center;gap:10px;
+}
+.inapp-banner .box button{
+  margin-left:auto;border:none;background:#8a4b00;color:#fff;border-radius:8px;padding:7px 12px;font-size:.8rem;cursor:pointer;font-weight:700;white-space:nowrap;
+}
+
+/* toast */
+#toast{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
+  background:#111827;color:#fff;padding:10px 18px;border-radius:999px;font-size:.86rem;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:100;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+#toast.show{opacity:1}
+
+@media (max-width:640px){
+  .brand .title{font-size:1.08rem}
+  .toolbar{top:66px}
+  .pinned-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+.archive-area{max-width:1120px;margin:8px auto 34px;padding:0 16px}
+
+/* ============================================================
+   인쇄 전용 스타일 (@media print)
+   ============================================================ */
+@media print{
+  .topbar,.search-wrap,#searchResults,.filter-row,.toolbar,.panel,
+  .inapp-banner,footer.site-footer,.doc-back,.star-btn,#toast,
+  .audience-switch,.doc-footer-note{
+    display:none !important;
+  }
+  body{background:#fff;margin:0}
+  .doc-header{padding:0;margin:0}
+  .doc-title{font-size:20pt;margin:0 0 6px}
+  .doc-badges{margin-bottom:10px}
+  .quick3-box{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  .doc-content{max-width:100%;padding:0;margin:0;font-size:11pt}
+  .info-box,.qa-box,blockquote.note-block,.table-wrap{box-shadow:none}
+
+  /* 선택 인쇄: 체크 해제된 섹션 숨김 */
+  .no-print{display:none !important}
+
+  /* 표: 페이지 넘김 시 헤더 반복 + 잘림 방지 */
+  table.data-table thead{display:table-header-group}
+  table.data-table tr,table.data-table td,table.data-table th{break-inside:avoid;page-break-inside:avoid}
+  tr,img{break-inside:avoid;page-break-inside:avoid}
+
+  /* 배경색·테두리 인쇄시 유지 */
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+
+  h2{break-after:avoid;page-break-after:avoid}
+  h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
+  .info-box,.qa-box,blockquote.note-block{break-inside:avoid;page-break-inside:avoid}
+  .tr-section{break-before:auto;page-break-before:auto}
+}
+
+@page{
+  size:A4;
+  margin:16mm 14mm;
+}

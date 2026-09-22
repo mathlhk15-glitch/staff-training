@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>창원경일고등학교 교직원 연수 포털</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>window.SITE_DEPTH = 0;</script>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="school">창원경일고등학교</span>
+      <span class="title">교직원 연수 포털</span>
+    </div>
+    <div class="topbar-meta" id="lastUpdated">현재 자료 불러오는 중…</div>
+  </div>
+</header>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span class="icon">🔎</span>
+    <input id="searchInput" type="text" placeholder="무엇을 찾으시나요? (예: 병가, 선물, 예산, 진단서)">
+    <button class="search-clear" id="searchClear">✕</button>
+  </div>
+</div>
+
+<div id="searchResults"></div>
+
+<div id="listArea">
+  <div class="filter-row" id="filterRow">
+    <button class="chip active" data-cat="__all">전체</button>
+    <!-- 카테고리 칩은 스크립트로 채워짐 -->
+  </div>
+
+  <main>
+    <section>
+      <div class="section-title">⭐ 자주 찾는 자료</div>
+      <div class="pinned-grid" id="pinnedGrid"></div>
+    </section>
+
+    <section>
+      <div class="section-title">분야별 자료 <span class="cnt" id="totalCount"></span></div>
+      <div class="card-list" id="cardList"></div>
+    </section>
+  </main>
+</div>
+
+<div id="archiveArea" class="archive-area" style="display:none">
+  <button class="chip" id="archiveToggle" type="button">이전 연도 자료 보기</button>
+  <div id="archiveList" class="card-list" style="display:none;margin-top:12px"></div>
+</div>
+
+<footer class="site-footer">
+  창원경일고등학교 교직원 연수 포털 · 원본 자료는 학교 내부 안내를 기준으로 재구성되었습니다.<br>
+  자료 추가·개정 문의: 교감실
+</footer>
+
+<script src="data/trainings.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  const cardList = document.getElementById('cardList');
+  const pinnedGrid = document.getElementById('pinnedGrid');
+  const filterRow = document.getElementById('filterRow');
+  const totalCount = document.getElementById('totalCount');
+  let activeCategory = '__all';
+
+  // groupId 기준으로 대표 1건만 카드로 노출(교육활동 보호는 대상별 3개를 1개로 묶음)
+  function groupedItems() {
+    const seen = {};
+    const groups = [];
+    TRAININGS.filter(t => t.isCurrent).forEach(t => {
+      if (seen[t.groupId]) {
+        seen[t.groupId].variants.push(t);
+        return;
+      }
+      const g = { rep: t, variants: [t] };
+      seen[t.groupId] = g;
+      groups.push(g);
+    });
+    return groups;
+  }
+
+  function updateHeaderMeta() {
+    const current = TRAININGS.filter(t => t.isCurrent);
+    if (!current.length) return;
+    const year = Math.max(...current.map(t => t.year));
+    const latest = current.map(t => t.reviewedDate).filter(Boolean).sort().pop();
+    document.getElementById('lastUpdated').textContent = `${year}학년도 적용 · 최종 업데이트 ${fmtDate(latest)}`;
+  }
+
+  function renderArchive() {
+    const old = TRAININGS.filter(t => !t.isCurrent).sort((a,b) => b.year - a.year || a.title.localeCompare(b.title, 'ko'));
+    const area = document.getElementById('archiveArea');
+    const list = document.getElementById('archiveList');
+    const toggle = document.getElementById('archiveToggle');
+    if (!old.length || !area || !list || !toggle) return;
+    area.style.display = 'block';
+    list.innerHTML = old.map(t => `<a class="search-result-card" href="${t.file}"><h4>${t.year} · ${t.title}</h4><div class="snippet">${t.desc}</div></a>`).join('');
+    toggle.addEventListener('click', () => {
+      const open = list.style.display !== 'none';
+      list.style.display = open ? 'none' : 'block';
+      toggle.textContent = open ? '이전 연도 자료 보기' : '이전 연도 자료 닫기';
+    });
+  }
+
+  function renderPinned() {
+    const pinned = TRAININGS.filter(t => t.pinned && t.isCurrent);
+    pinnedGrid.innerHTML = pinned.map(t => `
+      <div class="pinned-card" onclick="location.href='${t.file}'">
+        <div class="ico">📌</div>
+        <div class="t">${t.title}</div>
+        <div class="k">${t.desc}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderFilters() {
+    CATEGORY_ORDER.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'chip';
+      btn.dataset.cat = cat;
+      btn.textContent = cat;
+      filterRow.appendChild(btn);
+    });
+    filterRow.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      activeCategory = btn.dataset.cat;
+      filterRow.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderList();
+    });
+  }
+
+  function renderList() {
+    const favs = getFavorites();
+    let groups = groupedItems();
+    if (activeCategory !== '__all') {
+      groups = groups.filter(g => g.rep.category === activeCategory);
+    }
+    totalCount.textContent = `(${groups.length}건)`;
+
+    if (groups.length === 0) {
+      cardList.innerHTML = `<div class="empty-state">해당 분야의 자료가 아직 없습니다.</div>`;
+      return;
+    }
+
+    cardList.innerHTML = groups.map(g => {
+      const t = g.rep;
+      const status = computeStatus(t);
+      const badgeCls = status.stale ? 'warn' : 'ok';
+      const badgeLabel = status.stale ? '⚠ 재검토 필요' : '● 자료 검토 완료';
+      const isFav = favs.includes(t.groupId);
+
+      let audienceHtml = '';
+      if (g.variants.length > 1) {
+        audienceHtml = `<div class="audience-tabs">${g.variants.map(v => `<a href="${v.file}" onclick="event.stopPropagation()">${v.audience}</a>`).join('')}</div>`;
+      }
+
+      return `
+        <div class="tr-card">
+          <div class="body" onclick="location.href='${t.file}'">
+            <span class="cat-tag">${t.category}</span>
+            <h3>${g.variants.length > 1 ? t.title.replace(/\s*\([^)]*\)\s*$/, '') : t.title}</h3>
+            <p class="desc">${t.desc}</p>
+            ${audienceHtml}
+            <div class="meta-row">
+              <span class="badge ${badgeCls}">${badgeLabel}</span>
+              <span class="meta" style="font-size:.78rem;color:var(--ink-soft)">기준일 ${fmtDate(t.baseDate)}</span>
+            </div>
+          </div>
+          <button class="star-btn ${isFav ? '' : 'off'}" data-fav="${t.groupId}" title="즐겨찾기">★</button>
+        </div>
+      `;
+    }).join('');
+
+    cardList.querySelectorAll('[data-fav]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFavorite(btn.dataset.fav);
+        renderList();
+      });
+    });
+  }
+
+  updateHeaderMeta();
+  renderPinned();
+  renderFilters();
+  renderList();
+  renderArchive();
+})();
+</script>
+</body>
+</html>
